@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TokenService } from "../../services/token.service";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: "app-sign-in",
   templateUrl: "./sign-in.component.html",
   styleUrls: ["./sign-in.component.scss"],
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,NgIf],
   standalone: true,
 })
 export class SignInComponent implements OnInit {

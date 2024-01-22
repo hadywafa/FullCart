@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
@@ -10,6 +10,7 @@ import { SignUp } from "../../../shared/models/sign-up";
   selector: "app-sign-up",
   templateUrl: "./sign-up.component.html",
   styleUrls: ["./sign-up.component.scss"],
+  imports:[ReactiveFormsModule],
   standalone: true,
 })
 export class SignUpComponent implements OnInit {

@@ -1,8 +1,8 @@
-<div class="container-wrapper">
+<div class="p-12 pb-0 container-wrapper">
   <h3 class="text-center"><i class="bi bi-person-circle ac-logo"></i>Welcome back!</h3>
   <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Sign in to your account</h3>
 
-  <div class="ac">Don't have an Account? <span class="btn btn-link" (click)="goSignUp()">Sign Up</span></div>
+  <div class="cursor-pointer ac">Don't have an Account? <span class="btn btn-link" (click)="goSignUp()">Sign Up</span></div>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <!-- email -->
@@ -20,7 +20,7 @@
           Email is required
         </small>
         <small *ngIf="email?.errors?.['email']">
-          Not Vaild Email
+          Not Valid Email
         </small>
       </div>
     </div>
@@ -36,7 +36,7 @@
       />
       <div [hidden]="password?.valid || password?.untouched" class="alert-hw alert-danger-hw">
         <small *ngIf="password?.errors?.['required']">
-          password is required
+          Password is required
         </small>
       </div>
     </div>
