@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Application.Common.ExtensionMethods;
 using Application.Features.Categories.Queries.GetCategoriesTree;
 using Application.Features.Categories.Queries.GetProductCategoriesTree;
 using Application.Features.Products.Commands.CreateProduct;
@@ -16,8 +15,6 @@ namespace FullCartApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        #region Inject MediatR
-
         private readonly IMediator _mediator;
 
         public ProductsController(IMediator mediator)
@@ -25,18 +22,16 @@ namespace FullCartApi.Controllers
             _mediator = mediator;
         }
 
-        #endregion
-
         #region Product End Points
 
-        [HttpGet("GetProductsBref")]
-        public async Task<IActionResult> GetProductsBref()
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
         {
             var products = await _mediator.Send(new GetProductsBrefQuery());
             return StatusCode(200, products);
         }
 
-        [HttpGet("GetProductDetailsById/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetProductDetailsById([FromRoute] int id)
         {
             var product = await _mediator.Send(new GetProductDetailsByIdQuery() { Id = id });

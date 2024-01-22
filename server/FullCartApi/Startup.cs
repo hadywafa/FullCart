@@ -48,7 +48,7 @@ namespace FullCartApi
             {
                 c.SwaggerDoc(
                     "v1",
-                    new OpenApiInfo { Title = "NoonEcommerceV1API", Version = "v1" }
+                    new OpenApiInfo { Title = "FullCartApi", Version = "v1" }
                 );
             });
         }
@@ -61,7 +61,7 @@ namespace FullCartApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(
-                    c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NoonEcommerceV1API v1")
+                    c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FullCartApi v1")
                 );
             }
 
@@ -88,7 +88,7 @@ namespace FullCartApi
 
             app.UseAuthentication(); //1
 
-            app.UseAuthorization(); //2
+            //app.UseAuthorization(); //2
 
             app.UseEndpoints(endpoints =>
             {

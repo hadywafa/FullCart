@@ -8,6 +8,7 @@ import { CommonModule } from "@angular/common";
 import { AfterDiscountPricePipe } from "../../../core/pipes/after-discount-price.pipe";
 import { RouterModule } from "@angular/router";
 import { StringLengthPipe } from "../../../core/pipes/string-length.pipe";
+import { GlobalsService } from "../../../shared/services/globals.service";
 @Component({
   selector: "app-products",
   templateUrl: "./products.component.html",
@@ -26,22 +27,22 @@ export class ProductsComponent implements OnInit {
   Products!: ProductSummary[];
   page: number = 1;
   count: number = 0;
-  isspener: boolean = true;
+  isLoading: boolean = true;
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
-  localstorge: string = "en";
-  arRegx: string = "/[\u0600-\u06FF]/";
+  lang: string = "en";
+  arabicRegex: string = "/[\u0600-\u06FF]/";
   imagesBaseUrl: string = environment.api.storagePath;
 
-  constructor(private productsService: ProductsService) {
-    if (localStorage.getItem("lang")) this.localstorge = localStorage.getItem("lang")!;
+  constructor(private productsService: ProductsService, private global: GlobalsService) {
+    this.global.lang;
   }
 
   ngOnInit(): void {
-    this.productsService.GetAllProducts().subscribe((productlist) => {
-      this.Products = productlist;
+    this.productsService.GetAllProducts().subscribe((products) => {
+      this.Products = products;
       if (this.Products != null) {
-        this.isspener = false;
+        this.isLoading = false;
         document.getElementById("pop")!.style.display = "none";
       }
     });
@@ -55,26 +56,26 @@ export class ProductsComponent implements OnInit {
     this.productSize = event.target.value;
     this.page = 1;
   }
-  SreachText: string = "";
+  SearchText: string = "";
 
-  onSearchTextEnterd(searchvalue: string) {
-    this.SreachText = searchvalue.toLowerCase();
+  onSearchTextEntered(searchValue: string) {
+    this.SearchText = searchValue.toLowerCase();
 
-    console.log(this.SreachText);
+    console.log(this.SearchText);
 
-    if (this.SreachText !== "") {
+    if (this.SearchText !== "") {
       this.Products =
-        this.Products.filter((p) => p.name?.toLowerCase().includes(this.SreachText)) ||
-        this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText));
+        this.Products.filter((p) => p.name?.toLowerCase().includes(this.SearchText)) ||
+        this.Products.filter((p) => p.description?.toLowerCase().includes(this.SearchText));
 
       console.log(this.Products);
     } else {
-      this.isspener = true;
+      this.isLoading = true;
       document.getElementById("pop")!.style.display = "block";
-      this.productsService.GetAllProducts().subscribe((productlist) => {
-        this.Products = productlist;
+      this.productsService.GetAllProducts().subscribe((products) => {
+        this.Products = products;
         if (this.Products != null) {
-          this.isspener = false;
+          this.isLoading = false;
           document.getElementById("pop")!.style.display = "none";
         }
       });

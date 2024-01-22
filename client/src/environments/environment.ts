@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api: {
-    baseURL: "https://localhost:5001",
+    baseURL: "https://localhost:5001/api",
     storagePath: "https://localhost:5001/Images",
   },
   identityServer: {

@@ -8,19 +8,23 @@ import { Category } from "../../models/category";
 import { SignInComponent } from "../../../login/components/sign-in/sign-in.component";
 import { GlobalsService } from "../../../shared/services/globals.service";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatIconModule } from "@angular/material/icon";
+import { APP_LANG } from "../../../core/models/app-lang";
+import { NgIf } from "@angular/common";
 @Component({
   selector: "app-home-header",
   templateUrl: "./home-header.component.html",
   styleUrls: ["./home-header.component.scss"],
-  imports: [MatMenuModule, RouterModule],
+  imports: [MatMenuModule, RouterModule, MatIconModule, NgIf],
   standalone: true,
 })
-export class HomeHeaderComponent implements OnInit {
+export class HomeHeaderComponent {
   apiUrl: string = environment.api.baseURL;
-  localstorge: string;
+  lang: string;
   Categories!: Category[];
   token!: any;
   userName!: string;
+  countCart!: number;
 
   constructor(
     private router: Router,
@@ -29,21 +33,11 @@ export class HomeHeaderComponent implements OnInit {
     private _auth: TokenService,
     private _cartService: CartService // private _cartService: CartService
   ) {
-    this.localstorge = localStorage.getItem("lang")!;
+    this.lang = localStorage.getItem("lang")!;
   }
 
-  countCart!: number;
-  ngOnInit(): void {
-    //get statue from Cookie
-    // if (localStorage.getItem("user")) {
-    //   this._cartService.getCartItems().subscribe((prod) => (this.countCart = prod.length));
-    // }
-  }
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   register() {
     const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     this._dialog.open(SignInComponent, dialogConfig);
   }
@@ -53,20 +47,17 @@ export class HomeHeaderComponent implements OnInit {
     this.router.navigate(["/"]);
     window.location.reload();
   }
-  searchtext: string = "";
+  searchText: string = "";
   @Output()
-  SearchTextCganged: EventEmitter<string> = new EventEmitter<string>();
+  SearchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   onSearchTextChange(st: string) {
-    this.searchtext = st;
-    this.SearchTextCganged.emit(this.searchtext);
+    this.searchText = st;
+    this.SearchTextChanged.emit(this.searchText);
   }
 
-  loclaztion(st: string) {
-    localStorage.setItem("lang", st);
-    if (localStorage.getItem("ar") == "ar") {
-      document.body.style.direction = "rtl";
-    }
+  localization(lang: string) {
+    this.global.Initialize(this.global.appMode, lang as APP_LANG);
     location.reload();
   }
 }
