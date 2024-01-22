@@ -7,7 +7,7 @@
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <div *ngFor="let prd of Products" [routerLink]="['../products',prd?.id]" class="mb-4">
         <a class="block overflow-hidden bg-white rounded shadow-md product-card">
-          <div>
+          <div class="cursor-pointer">
             <img src="https://f.nooncdn.com/p/v1637140832/N51885201A_1.jpg?format=avif&width=800" alt="Product Image" />
           </div>
 
