@@ -1,0 +1,34 @@
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
+import { CartProduct } from "../models/cart-product";
+
+@Injectable({
+  providedIn: "root",
+})
+export class CartService {
+  constructor(private _api: HttpClient) {}
+
+  //get all cart items
+  getCartItems(): Observable<CartProduct[]> {
+    return this._api.get<CartProduct[]>(`${environment.api.baseURL}` + `/api/cart/GetAll`);
+  }
+
+  // Add to cart
+  addToCart(proId: number, count: number) {
+    return this._api.post(`${environment.api.baseURL}` + `/api/cart/Add?proId=${proId}&count=${count}`, count);
+  }
+  //update product count in cart
+  updateQuantity(proId: number, count: number) {
+    return this._api.post(`${environment.api.baseURL}` + `/api/cart/Update?proId=${proId}`, count);
+  }
+  //Remove from cart
+  removeFromCart(proId: number) {
+    return this._api.delete(`${environment.api.baseURL}` + `/api/cart/Remove?proId=${proId}`);
+  }
+
+  GetTotalPrice(): Observable<number> {
+    return this._api.get<number>(`${environment.api.baseURL}/api/cart/GetCartPrice`);
+  }
+}

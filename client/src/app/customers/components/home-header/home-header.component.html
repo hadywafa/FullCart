@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <!-- Main Header (Yello Part) -->
+
+  <div id="firstNav" class="py-1 row main-color">
+    <div class="col-10 col-lg-6 col-xl-7 col-xxl-8" id="LogoSearch">
+      <div class="row">
+        <div class="mt-1 col-4 col-md-2 col-lg-3 col-xl-2 col-xxl-2">
+          <a href="">
+            <img
+              src="https://z.nooncdn.com/s/app/com/noon/images/logos/noon-black-en.svg"
+              alt="Noon Logo"
+              *ngIf="localstorge=='en'"
+            />
+
+            <img
+              src="https://z.nooncdn.com/s/app/com/noon/images/logos/noon-black-ar.svg"
+              alt="Noon Logo"
+              *ngIf="localstorge=='ar'"
+            />
+          </a>
+        </div>
+
+        <div class="text-center col-8 col-md-9 col-lg-9 col-xl-10 col-xxl-10">
+          <input
+            type="text"
+            placeholder="search"
+            class="p-2 mt-2 border-0 rounded col-12"
+            #search
+            (input)=" onSearchTextChange(search.value)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 mt-2 col-7 col-lg-6 col-xl-5 col-xxl-4" id="headerList">
+      <ul class="list-inline">
+        <li class="list-inline-item" *ngIf="localstorge!=='ar'">
+          <button class="btn btn-defualt headerLink" (click)="loclaztion('ar')">
+            العربية
+          </button>
+        </li>
+
+        <li class="list-inline-item" *ngIf="localstorge!=='en'">
+          <button class="btn btn-defualt" (click)="loclaztion('en')">
+            English
+          </button>
+        </li>
+
+        <li class="list-inline-item" *ngIf="token">
+          <button class="headerLink" mat-button [matMenuTriggerFor]="menu">
+            <div class="mx-2 d-inline-block">
+              <small class="bg-transparent">ahlan ! {{userName}}</small>
+              <div class="bg-transparent fw-bold">My Account</div>
+            </div>
+            <span class="mb-2"><i class="fa-solid fa-sort-down"></i></span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/user/order">
+              <img src="	https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg" /> Orders
+            </button>
+            <button mat-menu-item routerLink="/user/Address">
+              <img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg" /> Addresses
+            </button>
+            <button mat-menu-item routerLink="/user/payment">
+              <img src="https://z.nooncdn.com/s/app/com/noon/icons/payment_menu_icon_v3.svg" /> Payments
+            </button>
+            <button mat-menu-item routerLink="/user/return">
+              <img src="	https://z.nooncdn.com/s/app/com/noon/icons/returns_menu_icon_v3.svg" /> Returns
+            </button>
+            <button mat-menu-item routerLink="/user/profile">
+              <img src="	https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" /> Profile
+            </button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+        </li>
+
+        <li class="list-inline-item" *ngIf="!token">
+          <span class="btn" (click)="register()"> sign <i class="fa-solid fa-user"></i> </span>
+        </li>
+
+        <li class="list-inline-item">
+          <button type="button" class="btn btn-defualt position-relative">
+            <a class="headerLink" [routerLink]="['/egypt-en/cart']">
+              cart
+              <i class="fa-solid fa-cart-shopping">
+                <span
+                  class="top-0 position-absolute start-100 translate-middle badge rounded-pill bg-danger"
+                  *ngIf="countCart>0 && localstorge == 'en'"
+                >
+                  {{countCart}}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+                <span
+                  class="top-0 position-absolute end-70 translate-middle badge rounded-pill bg-danger"
+                  *ngIf="countCart>0 && localstorge == 'ar'"
+                >
+                  {{countCart}}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </i>
+            </a>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

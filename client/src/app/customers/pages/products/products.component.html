@@ -1,0 +1,53 @@
+<!-- <app-home-header></app-home-header> -->
+<div class="pop" id="pop">
+  <mat-spinner *ngIf="isspener"></mat-spinner>
+</div>
+<app-home-header (SearchTextCganged)="onSearchTextEnterd($event)"></app-home-header>
+<div class="container-fluid">
+  <div class="overflow-hidden container-fluid" id="ProductList">
+    <div class="row">
+      <div class="mb-4 col-md-4" *ngFor="let prd of Products">
+        <a class="product-card" [routerLink]="['/egypt-en','p',prd?.id]">
+          <!-- Your product card content here -->
+          <div>
+            <div class="product-tumb">
+              <img src="{{imagesBaseUrl + '/'+ prd?.imageUrl}}" />
+            </div>
+
+            <div class="product-details text-start d-flex flex-column justify-content-start">
+              <h5 class="text-start">{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
+
+              <div class="text-start d-flex flex-column justify-content-start">
+                <div class="product-bottom-details text-start">
+                  <ng-container *ngIf="prd.discount==0; else NoDicount">
+                    <span class="mb-5 fw-bold">{{prd.price | currency: "EGP ":"symbol"}}</span>
+                  </ng-container>
+
+                  <ng-template #NoDicount>
+                    <span class="fw-bold fs-5 text-start" style="text-align: start;">
+                      {{prd.price | afterDiscountPrice:prd.discount | currency: "EGP ":"symbol"}}
+                    </span>
+                    <br />
+                    <span class="text-decoration-line-through fw-light" style="color: #7e859b;">
+                      {{prd.price|currency:"EGP":"symbol"}}
+                    </span>
+                    <span style="color: #5dbd32; font-weight: bold;">
+                      {{prd.discount*100 | number : '1.0-2'}}% OFF
+                    </span>
+                    <div *ngIf="prd.isFreeDelivered">
+                      <img
+                        class="mt-2 img-fluid w-25"
+                        src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg"
+                        alt=""
+                      />
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

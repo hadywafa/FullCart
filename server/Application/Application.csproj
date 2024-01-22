@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Brands\Commands\CreateBrand\" />
+    <Folder Include="Features\Brands\Commands\DeleteBrand\" />
+    <Folder Include="Features\Brands\Commands\UpdateBrand\" />
+    <Folder Include="Features\CartItems\Commands\AddToCart\" />
+    <Folder Include="Features\CartItems\Commands\RemoveFromCart\" />
+    <Folder Include="Features\CartItems\Commands\UpdateQuantity\" />
+    <Folder Include="Features\Categories\Commands\CreateCategory\" />
+    <Folder Include="Features\Categories\Commands\DeleteCategory\" />
+    <Folder Include="Features\Categories\Commands\UpdateCategory\" />
+    <Folder Include="Features\Order\Commands\PlaceOrder\" />
+    <Folder Include="Features\Order\Commands\CancelOrder\" />
+    <Folder Include="Features\Reviews\Commands\CreateReview\" />
+    <Folder Include="Features\Reviews\Commands\DeleteReview\" />
+    <Folder Include="Features\Reviews\Commands\UpdateReview\" />
+    <Folder Include="Features\Products\Commands\DeleteProduct\" />
+    <Folder Include="Features\Products\Commands\UpdateProduct\" />
+    <Folder Include="Features\User\Queries\GeuUserClaims\" />
+    <Folder Include="Features\User\Queries\GetUserByRole\" />
+    <Folder Include="Features\WishlistItems\Commands\AddToWishlist\" />
+    <Folder Include="Features\WishlistItems\Commands\RemoveFromWishlist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.39.2" />
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.19" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>

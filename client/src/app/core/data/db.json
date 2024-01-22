@@ -1,0 +1,756 @@
+{
+  "users":[
+     {
+        "firstName":"firstuser1",
+        "lastName":"laststuser1",
+        "email":"user1@gmail.com",
+        "password":"user1234",
+        "isActive":true,
+        "balance":37377,
+        "role":"lastuser2",
+        "phone":"01003875982",
+        "addresses":[
+           1,
+           2
+        ]
+     },
+     {
+        "firstName":"kerolosss",
+        "lastName":"sadkihdhdh",
+        "email":"user1@gmail.com",
+        "password":"user5",
+        "isActive":true,
+        "balance":66006,
+        "role":"firstuser1",
+        "phone":"01175894384",
+        "addresses":[
+           1,
+           2
+        ]
+     }
+  ],
+  "categories":[
+     {
+        "id":1,
+        "isTop":false,
+        "code":"Asd",
+        "name":"Mobiles",
+        "nameAr":"موبيلات"
+     },
+     {
+        "id":2,
+        "isTop":false,
+        "code":"Asd",
+        "name":"Mobiles",
+        "nameAr":"موبيلات"
+     }
+  ],
+  "subCategories":[
+     {
+        "id":1,
+        "isTop":false,
+        "code":"Asd",
+        "name":"TVs",
+        "nameAr":"تليفزيونات"
+     },
+     {
+        "id":2,
+        "isTop":false,
+        "code":"Asd",
+        "name":"Laptops",
+        "nameAr":"اجهزة اللابتوب"
+     }
+  ],
+  "products":[
+     {
+        "id":2,
+        "modelNumber":"3510-E0003-BLK",
+        "name":"Vostro 3510 15.6 Inch Full Hd/ Core I5-1135G7/ 8Gb Ram/ 1Tb Hdd/ Intel Iris Xe Integrated / Ubuntu English/Arabic Black",
+        "nameArabic":"لابتوب فوسترو 3510 بشاشة مقاس 15.6 بوصة بدقة كاملة الوضوح",
+        "price":3393,
+        "quantity":11,
+        "discount":0.24,
+        "description":"Amplified display: A brilliant FHD panel (220 nits) offers more brightness and vivid color for an enhanced front-of-screen experience, and a 2-sided narrow border emphasizes your screen while helping minimize distractions.",
+        "descriptionAr":"",
+        "imageThumb":"p2.png",
+        "imagesGallery":[
+           "p2-1.png",
+           "p2-2.png",
+           "p2-3.png",
+           "p2-4.png"
+        ],
+        "categoryId":3,
+        "highlights":[
+           "Compact Size to handle everywhere",
+           "Compact Size to handle everywhere",
+           "SD Card Slot"
+        ],
+        "specifications":[
+           {
+              "key":"Average Battery Life",
+              "value":"10 Hours"
+           },
+           {
+              "key":"Camera Type",
+              "value":"Primary Camera"
+           },
+           {
+              "key":"Colour Name",
+              "value":"Black"
+           },
+           {
+              "key":"Country of Origin",
+              "value":"United States of America (USA)"
+           },
+           {
+              "key":"Display Resolution",
+              "value":"1080x1920"
+           },
+           {
+              "key":"Display Resolution Type",
+              "value":"Full HD"
+           },
+           {
+              "key":"Display Type",
+              "value":"LCD"
+           },
+           {
+              "key":"External Graphics",
+              "value":"Integrated"
+           },
+           {
+              "key":"Feature 1",
+              "value":"Bluetooth"
+           },
+           {
+              "key":"Feature 2",
+              "value":"Built-in Speaker"
+           },
+           {
+              "key":"Feature 3",
+              "value":"Compact Size"
+           },
+           {
+              "key":"Feature 4",
+              "value":"Intel"
+           },
+           {
+              "key":"Feature 5",
+              "value":"Travel"
+           },
+           {
+              "key":"Graphics Memory Name",
+              "value":"Intel Iris Xe"
+           },
+           {
+              "key":"Graphics Memory Version",
+              "value":"Yes"
+           },
+           {
+              "key":"HDMI Output",
+              "value":"Yes"
+           },
+           {
+              "key":"Internal Memory",
+              "value":"1 TB"
+           },
+           {
+              "key":"Keyboard Language",
+              "value":"English/Arabic"
+           },
+           {
+              "key":"Model Name",
+              "value":"Vostro 3510-2"
+           },
+           {
+              "key":"Model Number",
+              "value":"3510-E0003-BLK"
+           },
+           {
+              "key":"Number of Cores",
+              "value":"3510-E0003-BLK"
+           },
+           {
+              "key":"Number of HDMI Ports",
+              "value":"Quad Core"
+           },
+           {
+              "key":"Number of Cores",
+              "value":"1"
+           },
+           {
+              "key":"Number of USB Ports",
+              "value":"3"
+           },
+           {
+              "key":"Operating System",
+              "value":"Ubuntu"
+           },
+           {
+              "key":"Primary Camera Resolution",
+              "value":"0.3 MP"
+           },
+           {
+              "key":"Processor Brand",
+              "value":"Intel"
+           },
+           {
+              "key":"Processor Speed",
+              "value":"2.4 GHz"
+           },
+           {
+              "key":"Processor Type",
+              "value":"Core i5"
+           },
+           {
+              "key":"Processor Version",
+              "value":"Core i5-1135G7"
+           },
+           {
+              "key":"Processor Version Number/Generation",
+              "value":"11th Gen"
+           },
+           {
+              "key":"Product Height",
+              "value":"0.71 inch"
+           },
+           {
+              "key":"Product Length",
+              "value":"14.23 inch"
+           },
+           {
+              "key":"Product Weight",
+              "value":"1.9 kg"
+           },
+           {
+              "key":"Product Width/Depth",
+              "value":"9.76 inch"
+           },
+           {
+              "key":"RAM Size",
+              "value":"8 GB"
+           },
+           {
+              "key":"RAM Type",
+              "value":"DDR4"
+           },
+           {
+              "key":"Screen Size",
+              "value":"15.6 inch"
+           },
+           {
+              "key":"SD Card Slot",
+              "value":"Yes"
+           },
+           {
+              "key":"Storage Type",
+              "value":"HDD"
+           },
+           {
+              "key":"Usage Type",
+              "value":"Personal"
+           }
+        ],
+        "available":true,
+        "brandId":5,
+        "brandCode":"dell",
+        "brandName":"Dell",
+        "sellerId":"d35d0302-b152-4153-b035-87315d9053a5",
+        "sellerName":"Kero",
+        "maxQuantityPerOrder":3,
+        "isFreeDelivered":true
+     },
+     {
+        "id":7,
+        "modelNumber":"Xiaomi 11T 8/256",
+        "name":"11T Dual SIM Meteorite Gray 8GB RAM 256GB 5G - Global Version",
+        "nameArabic":"هاتف 11 ثنائي الشريحة بذاكرة رام 8 جيجابايت وذاكرة داخلية 256 جيجابايت ويدعم تقنية 5، بلون رمادي ميتيورايت - إصدار العالمي",
+        "price":9999,
+        "quantity":20,
+        "discount":0.07,
+        "description":"108MP pro-grade camera |Ultra-wide and Macro lenses",
+        "descriptionAr":"null",
+        "imageThumb":"p15.png",
+        "imagesGallery":[
+           "p7-1.png",
+           "p7-2.png"
+        ],
+        "categoryId":1,
+        "highlights":[
+           "108MP pro-grade camera |Ultra-wide and Macro lenses",
+           "Flagship Mediatek Dimensity 1200 Ultra | 6nm processor with dual 5G, up to 3.0GHz",
+           "120GHz AdaptiveSync Amoled Display | Dual Speakers, Dolby Atmos",
+           "67W Wired Turbo Charging"
+        ],
+        "specifications":[
+           {
+              "key":"Battery Size",
+              "value":"9720 mAh"
+           },
+           {
+              "key":"Camera Type",
+              "value":"Primary Camera + Secondary Camera"
+           },
+           {
+              "key":"Charging Type",
+              "value":"Type-C"
+           },
+           {
+              "key":"Colour Name",
+              "value":"Silver"
+           },
+           {
+              "key":"Connection Type",
+              "value":"Wifi+Cellular"
+           },
+           {
+              "key":"Display Resolution Type",
+              "value":"Full HD"
+           },
+           {
+              "key":"Display Type",
+              "value":"Retina Display"
+           },
+           {
+              "key":"Network",
+              "value":"5G"
+           },
+           {
+              "key":"Feature 1",
+              "value":"Bluetooth"
+           },
+           {
+              "key":"Feature 2",
+              "value":"Built-in Speaker"
+           },
+           {
+              "key":"Feature 3",
+              "value":"Compact Size"
+           },
+           {
+              "key":"Feature 4",
+              "value":"Intel"
+           },
+           {
+              "key":"Feature 5",
+              "value":"Travel"
+           },
+           {
+              "key":"Graphics Memory Name",
+              "value":"Intel Iris Xe"
+           },
+           {
+              "key":"Graphics Memory Version",
+              "value":"Yes"
+           },
+           {
+              "key":"HDMI Output",
+              "value":"Yes"
+           },
+           {
+              "key":"Internal Memory",
+              "value":"1 TB"
+           },
+           {
+              "key":"Keyboard Language",
+              "value":"English/Arabic"
+           },
+           {
+              "key":"Model Name",
+              "value":"Vostro 3510-2"
+           },
+           {
+              "key":"Model Number",
+              "value":"3510-E0003-BLK"
+           },
+           {
+              "key":"Number of Cores",
+              "value":"3510-E0003-BLK"
+           },
+           {
+              "key":"Number of HDMI Ports",
+              "value":"Quad Core"
+           },
+           {
+              "key":"Number of Cores",
+              "value":"1"
+           },
+           {
+              "key":"Number of USB Ports",
+              "value":"3"
+           },
+           {
+              "key":"Operating System",
+              "value":"Ubuntu"
+           },
+           {
+              "key":"Primary Camera Resolution",
+              "value":"0.3 MP"
+           },
+           {
+              "key":"Processor Brand",
+              "value":"Intel"
+           },
+           {
+              "key":"Processor Speed",
+              "value":"2.4 GHz"
+           },
+           {
+              "key":"Processor Type",
+              "value":"Core i5"
+           },
+           {
+              "key":"Processor Version",
+              "value":"Core i5-1135G7"
+           },
+           {
+              "key":"Processor Version Number/Generation",
+              "value":"11th Gen"
+           },
+           {
+              "key":"Product Height",
+              "value":"0.71 inch"
+           },
+           {
+              "key":"Product Length",
+              "value":"14.23 inch"
+           },
+           {
+              "key":"Product Weight",
+              "value":"1.9 kg"
+           },
+           {
+              "key":"Product Width/Depth",
+              "value":"9.76 inch"
+           },
+           {
+              "key":"RAM Size",
+              "value":"8 GB"
+           },
+           {
+              "key":"RAM Type",
+              "value":"DDR4"
+           },
+           {
+              "key":"Screen Size",
+              "value":"15.6 inch"
+           },
+           {
+              "key":"SD Card Slot",
+              "value":"Yes"
+           },
+           {
+              "key":"Storage Type",
+              "value":"HDD"
+           },
+           {
+              "key":"Usage Type",
+              "value":"Personal"
+           }
+        ],
+        "available":true,
+        "brandId":4,
+        "brandCode":"Xiaomi",
+        "brandName":"LG",
+        "sellerId":"d809a8ac-75a4-4036-a6f5-696b18338560",
+        "sellerName":"Emad",
+        "maxQuantityPerOrder":1,
+        "isFreeDelivered":true
+     },
+     {
+        "id":5,
+        "modelNumber":"MKN53 / MKN53AE/AE / MKN53LL/A / MKN53ZP/A",
+        "name":"Watch Series 7 GPS 45mm Aluminium Case with Sport Band Midnight",
+        "nameArabic":"ساعة ابل سيريس 7",
+        "price":10400,
+        "quantity":36,
+        "discount":0.08,
+        "description":"Big screen. Huge impact. The larger display enhances the entire experience, making Apple Watch easier to use and read. Series 7 represents our biggest and brightest thinking yet. The challenge was to create a bigger display while barely expanding the dimensions of the watch itself.",
+        "descriptionAr":"null",
+        "imageThumb":"p5.png",
+        "imagesGallery":[
+           "p5-1.png",
+           "p5-2.png",
+           "p5-3.png",
+           "p5-4.png"
+        ],
+        "categoryId":4,
+        "highlights":[
+           "Crack resistant our strongest front crystal ever",
+           "Dust Resistant with IP6X certification",
+           "Water resistant swimproof with WR50 water resistance",
+           "Measure your blood oxygen level with a revolutionary sensor and app",
+           "Along with other innovations like mindfulness and sleep tracking to keep you healthy from head to toe"
+        ],
+        "specifications":[
+           {
+              "key":"Brand Compatibility",
+              "value":"Apple"
+           },
+           {
+              "key":"Colour Name",
+              "value":"Midnight"
+           },
+           {
+              "key":"Connection Type",
+              "value":"GPS"
+           },
+           {
+              "key":"Country Origin",
+              "value":"China"
+           },
+           {
+              "key":"Feature 2",
+              "value":"Dust Resistance"
+           },
+           {
+              "key":"Feature 3",
+              "value":"Rechargeable"
+           },
+           {
+              "key":"Feature 4",
+              "value":"Water Resistant"
+           },
+           {
+              "key":"Material",
+              "value":"Aluminum"
+           },
+           {
+              "key":"Model Name",
+              "value":"series 7 GPS"
+           },
+           {
+              "key":"Model Number",
+              "value":"MKN53 / MKN53AE/AE / MKN53LL/A / MKN53ZP/A"
+           },
+           {
+              "key":"Smartwatch Dial Size",
+              "value":"45 mm"
+           },
+           {
+              "key":"What's In The Box",
+              "value":"Smartwatch, Band & Charger"
+           }
+        ],
+        "available":true,
+        "brandId":7,
+        "brandCode":"apple",
+        "brandName":"Apple",
+        "sellerId":"11c27a56-d97d-4928-b661-e1a87a8bee66",
+        "sellerName":"Hady",
+        "maxQuantityPerOrder":10,
+        "isFreeDelivered":true
+     }
+  ],
+  "orders":[
+     {
+        "id":126,
+        "deliveryStatus":"Et facere ea ut fugiat et rerum omnis magnam. Doloremque doloribus qui eaque et aliquam asperiores ea consequatur. Et qui delectus sapiente tenetur possimus beatae odit assumenda deleniti. Molestiae sit cumque aut et alias consectetur nemo quia at. Tempora aut id officia praesentium eius et fugit nobis. Impedit quia aut ea dolorem sunt nisi in quo odit.\n \rMolestiae eos quibusdam vel aliquid nobis. Non aut sit repellat eos incidunt fugiat et perferendis. Enim et provident quia iste suscipit nisi. Voluptas dolore beatae laborum est et voluptatem dignissimos veniam deserunt.\n \rEos voluptatibus atque est. Accusantium quas fugit quia. Earum et ut nobis est omnis aliquam. Laboriosam a sed voluptas voluptas et quae dicta sed. Neque qui explicabo tenetur qui est eum.",
+        "deliveryStatusDescription":"Voluptatibus aut autem quo sunt sed.",
+        "totalPrice":40,
+        "orderItems":[
+           {
+              "price":512154,
+              "quantity":8,
+              "product":{
+                 "id":7,
+                 "modelNumber":"Xiaomi 11T 8/256",
+                 "name":"11T Dual SIM Meteorite Gray 8GB RAM 256GB 5G - Global Version",
+                 "nameArabic":"هاتف 11 ثنائي الشريحة بذاكرة رام 8 جيجابايت وذاكرة داخلية 256 جيجابايت ويدعم تقنية 5، بلون رمادي ميتيورايت - إصدار العالمي",
+                 "price":9999,
+                 "quantity":20,
+                 "discount":0.07,
+                 "description":"108MP pro-grade camera |Ultra-wide and Macro lenses",
+                 "descriptionAr":"null",
+                 "imageThumb":"p15.png",
+                 "imagesGallery":[
+                    "p7-1.png",
+                    "p7-2.png"
+                 ],
+                 "categoryId":1,
+                 "highlights":[
+                    "108MP pro-grade camera |Ultra-wide and Macro lenses",
+                    "Flagship Mediatek Dimensity 1200 Ultra | 6nm processor with dual 5G, up to 3.0GHz",
+                    "120GHz AdaptiveSync Amoled Display | Dual Speakers, Dolby Atmos",
+                    "67W Wired Turbo Charging"
+                 ],
+                 "specifications":[
+                    {
+                       "key":"Battery Size",
+                       "value":"9720 mAh"
+                    },
+                    {
+                       "key":"Camera Type",
+                       "value":"Primary Camera + Secondary Camera"
+                    },
+                    {
+                       "key":"Charging Type",
+                       "value":"Type-C"
+                    },
+                    {
+                       "key":"Colour Name",
+                       "value":"Silver"
+                    },
+                    {
+                       "key":"Connection Type",
+                       "value":"Wifi+Cellular"
+                    },
+                    {
+                       "key":"Display Resolution Type",
+                       "value":"Full HD"
+                    },
+                    {
+                       "key":"Display Type",
+                       "value":"Retina Display"
+                    },
+                    {
+                       "key":"Network",
+                       "value":"5G"
+                    },
+                    {
+                       "key":"Feature 1",
+                       "value":"Bluetooth"
+                    },
+                    {
+                       "key":"Feature 2",
+                       "value":"Built-in Speaker"
+                    },
+                    {
+                       "key":"Feature 3",
+                       "value":"Compact Size"
+                    },
+                    {
+                       "key":"Feature 4",
+                       "value":"Intel"
+                    },
+                    {
+                       "key":"Feature 5",
+                       "value":"Travel"
+                    },
+                    {
+                       "key":"Graphics Memory Name",
+                       "value":"Intel Iris Xe"
+                    },
+                    {
+                       "key":"Graphics Memory Version",
+                       "value":"Yes"
+                    },
+                    {
+                       "key":"HDMI Output",
+                       "value":"Yes"
+                    },
+                    {
+                       "key":"Internal Memory",
+                       "value":"1 TB"
+                    },
+                    {
+                       "key":"Keyboard Language",
+                       "value":"English/Arabic"
+                    },
+                    {
+                       "key":"Model Name",
+                       "value":"Vostro 3510-2"
+                    },
+                    {
+                       "key":"Model Number",
+                       "value":"3510-E0003-BLK"
+                    },
+                    {
+                       "key":"Number of Cores",
+                       "value":"3510-E0003-BLK"
+                    },
+                    {
+                       "key":"Number of HDMI Ports",
+                       "value":"Quad Core"
+                    },
+                    {
+                       "key":"Number of Cores",
+                       "value":"1"
+                    },
+                    {
+                       "key":"Number of USB Ports",
+                       "value":"3"
+                    },
+                    {
+                       "key":"Operating System",
+                       "value":"Ubuntu"
+                    },
+                    {
+                       "key":"Primary Camera Resolution",
+                       "value":"0.3 MP"
+                    },
+                    {
+                       "key":"Processor Brand",
+                       "value":"Intel"
+                    },
+                    {
+                       "key":"Processor Speed",
+                       "value":"2.4 GHz"
+                    },
+                    {
+                       "key":"Processor Type",
+                       "value":"Core i5"
+                    },
+                    {
+                       "key":"Processor Version",
+                       "value":"Core i5-1135G7"
+                    },
+                    {
+                       "key":"Processor Version Number/Generation",
+                       "value":"11th Gen"
+                    },
+                    {
+                       "key":"Product Height",
+                       "value":"0.71 inch"
+                    },
+                    {
+                       "key":"Product Length",
+                       "value":"14.23 inch"
+                    },
+                    {
+                       "key":"Product Weight",
+                       "value":"1.9 kg"
+                    },
+                    {
+                       "key":"Product Width/Depth",
+                       "value":"9.76 inch"
+                    },
+                    {
+                       "key":"RAM Size",
+                       "value":"8 GB"
+                    },
+                    {
+                       "key":"RAM Type",
+                       "value":"DDR4"
+                    },
+                    {
+                       "key":"Screen Size",
+                       "value":"15.6 inch"
+                    },
+                    {
+                       "key":"SD Card Slot",
+                       "value":"Yes"
+                    },
+                    {
+                       "key":"Storage Type",
+                       "value":"HDD"
+                    },
+                    {
+                       "key":"Usage Type",
+                       "value":"Personal"
+                    }
+                 ],
+                 "available":true,
+                 "brandId":4,
+                 "brandCode":"Xiaomi",
+                 "brandName":"LG",
+                 "sellerId":"d809a8ac-75a4-4036-a6f5-696b18338560",
+                 "sellerName":"Emad",
+                 "maxQuantityPerOrder":1,
+                 "isFreeDelivered":true
+              }
+           }
+        ]
+     }
+  ]
+}
