@@ -12,16 +12,12 @@ namespace FullCartApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        #region Inject Mediator | UserManager | Identity Service
-
         private readonly IMediator _mediator;
 
         public AuthController(IMediator mediator)
         {
             _mediator = mediator;
         }
-
-        #endregion
 
         [HttpPost("Register")]
         public async Task<IActionResult> RegisterAsync(UserRegisterDtoReq userDto)

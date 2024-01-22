@@ -12,23 +12,23 @@ export class CartService {
 
   //get all cart items
   getCartItems(): Observable<CartProduct[]> {
-    return this._api.get<CartProduct[]>(`${environment.api.baseURL}` + `/api/cart/GetAll`);
+    return this._api.get<CartProduct[]>(`${environment.api.baseURL}` + `/cart`);
   }
 
   // Add to cart
   addToCart(proId: number, count: number) {
-    return this._api.post(`${environment.api.baseURL}` + `/api/cart/Add?proId=${proId}&count=${count}`, count);
+    return this._api.post(`${environment.api.baseURL}` + `/cart/add?proId=${proId}&count=${count}`, count);
   }
   //update product count in cart
   updateQuantity(proId: number, count: number) {
-    return this._api.post(`${environment.api.baseURL}` + `/api/cart/Update?proId=${proId}`, count);
+    return this._api.post(`${environment.api.baseURL}` + `/cart/update?proId=${proId}`, count);
   }
   //Remove from cart
   removeFromCart(proId: number) {
-    return this._api.delete(`${environment.api.baseURL}` + `/api/cart/Remove?proId=${proId}`);
+    return this._api.delete(`${environment.api.baseURL}` + `/cart/remove?proId=${proId}`);
   }
 
   GetTotalPrice(): Observable<number> {
-    return this._api.get<number>(`${environment.api.baseURL}/api/cart/GetCartPrice`);
+    return this._api.get<number>(`${environment.api.baseURL}/cart/getCartPrice`);
   }
 }

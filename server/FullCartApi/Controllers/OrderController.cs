@@ -16,12 +16,13 @@ namespace FullCartApi.Controllers
     public class OrderController : ControllerBase
     {
         #region Inject MediatR
-        
+
         private readonly IMediator _mediator;
+
         public OrderController(IMediator mediator)
         {
             _mediator = mediator;
-        }      
+        }
 
         #endregion
 
@@ -30,33 +31,30 @@ namespace FullCartApi.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-
             return Ok();
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
         [HttpPost("Add")]
-        public async Task<IActionResult> PlaceOrder([FromQuery] Domain.Enums.PaymentMethod PaymentMethod, [FromQuery] string addressId)
+        public async Task<IActionResult> PlaceOrder(
+            [FromQuery] Domain.Enums.PaymentMethod PaymentMethod,
+            [FromQuery] string addressId
+        )
         {
-
             return Ok();
         }
 
-
-
         [Authorize(Roles = AuthorizeRoles.Customer)]
         [HttpGet("OrderDetails")]
-        public async Task<IActionResult> OrderDetails([FromQuery]int id)
+        public async Task<IActionResult> OrderDetails([FromQuery] int id)
         {
-
             return Ok();
         }
 
         [HttpGet("GetOrderDetails")]
-        public async Task<IActionResult> GetOrderDetails([FromQuery]int id)
+        public async Task<IActionResult> GetOrderDetails([FromQuery] int id)
         {
             return Ok();
         }
-        
     }
 }

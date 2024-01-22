@@ -11,12 +11,13 @@ namespace FullCartApi.Controllers
     public class WishlistController : ControllerBase
     {
         #region Inject MediatR
-        
+
         private readonly IMediator _mediator;
+
         public WishlistController(IMediator mediator)
         {
             _mediator = mediator;
-        }      
+        }
 
         #endregion
 
@@ -30,17 +31,16 @@ namespace FullCartApi.Controllers
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
         [HttpPost("Add")]
-        public async Task<IActionResult> AddToWishlist([FromQuery]int proId )
+        public async Task<IActionResult> AddToWishlist([FromQuery] int proId)
         {
             return StatusCode(200);
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
         [HttpDelete("Remove")]
-        public  async Task<IActionResult> RemoveFromWishlist([FromQuery]int proId)
+        public async Task<IActionResult> RemoveFromWishlist([FromQuery] int proId)
         {
             return Ok("item Removed successfully from your wishlist");
         }
-
     }
 }

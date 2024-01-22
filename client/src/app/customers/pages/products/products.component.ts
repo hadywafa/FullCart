@@ -9,6 +9,7 @@ import { AfterDiscountPricePipe } from "../../../core/pipes/after-discount-price
 import { RouterModule } from "@angular/router";
 import { StringLengthPipe } from "../../../core/pipes/string-length.pipe";
 import { GlobalsService } from "../../../shared/services/globals.service";
+import { SearchService } from "../../services/search-state.service";
 @Component({
   selector: "app-products",
   templateUrl: "./products.component.html",
@@ -34,7 +35,11 @@ export class ProductsComponent implements OnInit {
   arabicRegex: string = "/[\u0600-\u06FF]/";
   imagesBaseUrl: string = environment.api.storagePath;
 
-  constructor(private productsService: ProductsService, private global: GlobalsService) {
+  constructor(
+    private searchService: SearchService,
+    private productsService: ProductsService,
+    private global: GlobalsService
+  ) {
     this.global.lang;
   }
 
@@ -45,6 +50,10 @@ export class ProductsComponent implements OnInit {
         this.isLoading = false;
         document.getElementById("pop")!.style.display = "none";
       }
+    });
+
+    this.searchService.searchTextChanged$.subscribe((searchText) => {
+      this.onSearchTextEntered(searchText);
     });
   }
 
@@ -60,8 +69,6 @@ export class ProductsComponent implements OnInit {
 
   onSearchTextEntered(searchValue: string) {
     this.SearchText = searchValue.toLowerCase();
-
-    console.log(this.SearchText);
 
     if (this.SearchText !== "") {
       this.Products =

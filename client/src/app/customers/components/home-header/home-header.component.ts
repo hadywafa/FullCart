@@ -11,6 +11,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
 import { APP_LANG } from "../../../core/models/app-lang";
 import { NgIf } from "@angular/common";
+import { SearchService } from "../../services/search-state.service";
 @Component({
   selector: "app-home-header",
   templateUrl: "./home-header.component.html",
@@ -28,6 +29,7 @@ export class HomeHeaderComponent {
 
   constructor(
     private router: Router,
+    private search: SearchService,
     private _dialog: MatDialog,
     private global: GlobalsService,
     private _auth: TokenService,
@@ -53,7 +55,7 @@ export class HomeHeaderComponent {
 
   onSearchTextChange(st: string) {
     this.searchText = st;
-    this.SearchTextChanged.emit(this.searchText);
+    this.search.emitSearchTextChanged(this.searchText);
   }
 
   localization(lang: string) {
