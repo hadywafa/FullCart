@@ -17,22 +17,14 @@ export class GlobalsService {
   }
 
   redirectToLogin() {
-    this.appMode === APP_TYPE_MODE.CUSTOMER
-      ? this.router.navigate([`../${this.appMode}/${this.lang}/login`]).catch((e) => console.log(e))
-      : this.router.navigate([`../${this.appMode}/${this.lang}/login`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}/login`]).catch((e) => console.log(e));
   }
 
   redirectToHome() {
-    this.appMode === APP_TYPE_MODE.CUSTOMER
-      ? this.router.navigate([`../${this.appMode}/${this.lang}`]).catch((e) => console.log(e))
-      : this.router.navigate([`../${this.appMode}/${this.lang}`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}`]).catch((e) => console.log(e));
   }
 
   redirectToComponent(componentName: string) {
-    this.appMode === APP_TYPE_MODE.CUSTOMER
-      ? this.router
-          .navigate([`../${this.appMode}/${this.lang}/${this.lang}/${componentName}`])
-          .catch((e) => console.log(e))
-      : this.router.navigate([`../${this.appMode}/${this.lang}/${componentName}`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}/${componentName}`]).catch((e) => console.log(e));
   }
 }

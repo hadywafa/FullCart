@@ -62,4 +62,10 @@ export class HomeHeaderComponent {
     this.global.Initialize(this.global.appMode, lang as APP_LANG);
     location.reload();
   }
+  goToCart() {
+    this.global.redirectToComponent('cart')
+  }
+  goToHome() {
+    this.global.redirectToHome()
+  }
 }

@@ -1,6 +1,6 @@
 <div class="flex items-center justify-between py-2 px-4 mx-auto bg-[#C6829C]">
   <div class="flex items-center">
-    <div>
+    <div (click)="goToHome()" class="cursor-pointer">
       <img src="assets/images/binder.png" class="h-8 rounded-full" alt="Noon Logo" />
     </div>
 
@@ -44,7 +44,7 @@
 
       <li class="mx-2">
         <button type="button" class="relative btn btn-defualt">
-          <a class="headerLink" [routerLink]="['/egypt-en/cart']">
+          <a class="headerLink" (click)="goToCart()">
             cart
             <i class="mx-1 fa-solid fa-cart-shopping">
               <span
