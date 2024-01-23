@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 using CSharpFunctionalExtensions;
+using System.Text.Json.Serialization;
 
 namespace Application.Features.User.Commands.SignInWithIdv
 {
@@ -79,7 +80,8 @@ namespace Application.Features.User.Commands.SignInWithIdv
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Email = user.Email
-                }
+                },
+                new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }
             );
             _contextAccessor.HttpContext.Response.Cookies.Append(
                 "_id_token",

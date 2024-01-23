@@ -11,6 +11,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { APP_LANG } from "../../../core/models/app-lang";
 import { NgIf } from "@angular/common";
 import { SearchService } from "../../services/search-state.service";
+import { AppLocalStorageService } from "../../../shared/services/app-local-storage.service";
+import { AuthService } from "../../../shared/services/auth.service";
+import User from "../../../login/models/user";
 
 @Component({
   selector: "app-home-header",
@@ -23,7 +26,8 @@ export class HomeHeaderComponent {
   apiUrl: string = environment.api.baseURL;
   lang: string;
   Categories!: Category[];
-  token!: any;
+  isAuthenticated!: boolean;
+  currentUser!: User;
   userName!: string;
   countCart!: number;
   searchText: string = "";
@@ -31,11 +35,19 @@ export class HomeHeaderComponent {
   constructor(
     private router: Router,
     private search: SearchService,
-    private global: GlobalsService,
+    public global: GlobalsService,
     private dialog: MatDialog,
-    private cartService: CartService // private _cartService: CartService
+    private auth: AuthService
   ) {
-    this.lang = localStorage.getItem("lang")!;
+    this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
+      this.isAuthenticated = isAuthenticated;
+    });
+
+    this.auth.currentUser$.subscribe((currentUser) => {
+      this.currentUser = currentUser;
+    });
+
+    this.lang = this.global.lang;
   }
 
   register() {
@@ -44,10 +56,10 @@ export class HomeHeaderComponent {
   }
 
   logout() {
-    document.cookie = "_statueId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    this.global.redirectToLogin();
-    this.router.navigate(["/"]);
-    window.location.reload();
+    this.auth.logout().subscribe(() => {
+      this.auth.updateAuthenticationStatus();
+      this.global.redirectToLogin();
+    });
   }
 
   onSearchTextChange(st: string) {

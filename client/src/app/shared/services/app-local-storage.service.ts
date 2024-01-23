@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { TokenService } from "../../login/services/token.service";
 import User from "../../login/models/user";
 import { jwtDecode } from "jwt-decode";
+import { CookieService } from "ngx-cookie-service";
 
 @Injectable({
   providedIn: "root",
 })
 export class AppLocalStorageService {
-  constructor(private tokenService: TokenService) {}
+  constructor(private cookieService: CookieService) {}
   //----------------------------------------------------------------------
   private getDataItem(key: string): any | null {
     const data = localStorage.getItem(key);
@@ -24,24 +24,11 @@ export class AppLocalStorageService {
 
   //---------LogIn User Info-----------------//
   getCurrentUser(): User {
-    const accessToken = this.tokenService.getAccessToken();
-    if (!accessToken) {
+    const id_token = this.cookieService.get("_id_token");
+    if (!id_token) {
       // this.globalService.redirectToLogin();
       return {} as User;
-    }
-
-    try {
-      const tokenData: any = jwtDecode(accessToken);
-      const contactDataStr = tokenData.contact_data;
-      const userData = {
-        ...(contactDataStr ? JSON.parse(contactDataStr) : {}),
-      } as User;
-
-      return userData;
-    } catch (error) {
-      console.error("Error decoding token:", error);
-      return {} as User;
-    }
+    } else return JSON.parse(id_token) as User;
   }
   //--------- Cart -----------------//
   //--------- Wishlist -----------------//
