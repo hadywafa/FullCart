@@ -74,8 +74,6 @@ export class ProductsComponent implements OnInit {
       this.Products =
         this.Products.filter((p) => p.name?.toLowerCase().includes(this.SearchText)) ||
         this.Products.filter((p) => p.description?.toLowerCase().includes(this.SearchText));
-
-      console.log(this.Products);
     } else {
       this.isLoading = true;
       document.getElementById("pop")!.style.display = "block";

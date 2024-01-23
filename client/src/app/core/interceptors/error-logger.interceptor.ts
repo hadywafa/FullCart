@@ -8,8 +8,7 @@ export const errorLoggingInterceptor: HttpInterceptorFn = (req: HttpRequest<unkn
   const toastersService = inject(ToastrService);
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
-      console.log(error);
-
+      console.warn(error);
       let errorMsg = "";
       if (error.error instanceof ErrorEvent) {
         // Client-side error
@@ -18,9 +17,6 @@ export const errorLoggingInterceptor: HttpInterceptorFn = (req: HttpRequest<unkn
         // Server-side error
         errorMsg = `Server Error: ${error.status} ${error.statusText}`;
       }
-
-      console.log(errorMsg);
-
       // Display the error message using Toastr
       toastersService.error(errorMsg, "Error");
 

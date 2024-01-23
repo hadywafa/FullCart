@@ -32,8 +32,6 @@ export class ProductDetailsComponent implements OnInit {
       this.isLoading = true;
       this._productsService.GetProductById(this.productId).subscribe({
         next: (res: Product) => {
-          console.log(res);
-
           this.product = res;
           this.isLoading = false;
         },
@@ -47,12 +45,8 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(product: Product) {
     this._cartService.addToCart(product.id, 1).subscribe({
-      next: () => {
-
-      },
-      error: (err) => {
-
-      }
+      next: () => {},
+      error: (err) => {},
     });
   }
 }

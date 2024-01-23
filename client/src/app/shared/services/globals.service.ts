@@ -17,14 +17,14 @@ export class GlobalsService {
   }
 
   redirectToLogin() {
-    this.router.navigate([`../${this.appMode}/${this.lang}/sign-in`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}/sign-in`]).catch((e) => console.warn(e));
   }
 
   redirectToHome() {
-    this.router.navigate([`../${this.appMode}/${this.lang}`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}`]).catch((e) => console.warn(e));
   }
 
   redirectToComponent(componentName: string) {
-    this.router.navigate([`../${this.appMode}/${this.lang}/${componentName}`]).catch((e) => console.log(e));
+    this.router.navigate([`../${this.appMode}/${this.lang}/${componentName}`]).catch((e) => console.warn(e));
   }
 }

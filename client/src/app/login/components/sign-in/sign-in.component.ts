@@ -22,9 +22,7 @@ export class SignInComponent implements OnInit {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {}
-  ngOnDestroy(): void {
-    // console.log("destroyed");
-  }
+  ngOnDestroy(): void {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
