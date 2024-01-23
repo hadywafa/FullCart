@@ -67,26 +67,8 @@
       </li>
 
       <li class="mx-2">
-        <button type="button" class="relative btn btn-defualt">
-          <a class="headerLink" (click)="goToCart()">
-            cart
-            <i class="mx-1 fa-solid fa-cart-shopping">
-              <span
-                class="absolute top-0 start-100 -translate-middle badge rounded-pill bg-danger"
-                *ngIf="countCart > 0 && lang == 'en'"
-              >
-                {{countCart}}
-                <span class="visually-hidden">unread messages</span>
-              </span>
-              <span
-                class="absolute top-0 end-70 -translate-middle badge rounded-pill bg-danger"
-                *ngIf="countCart > 0 && lang == 'ar'"
-              >
-                {{countCart}}
-                <span class="visually-hidden">unread messages</span>
-              </span>
-            </i>
-          </a>
+        <button mat-icon-button [matBadge]="cartItems$ | async" matBadgeColor="warn" (click)="openCart()">
+          <mat-icon>shopping_cart</mat-icon>
         </button>
       </li>
     </ul>

@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "../../../environments/environment";
 import { CartProduct } from "../models/cart-product";
 
@@ -8,6 +8,9 @@ import { CartProduct } from "../models/cart-product";
   providedIn: "root",
 })
 export class CartService {
+  private cartItemsSubject = new BehaviorSubject<number>(0);
+  cartItems$ = this.cartItemsSubject.asObservable();
+
   constructor(private _api: HttpClient) {}
 
   //get all cart items

@@ -8,19 +8,19 @@ import { SignInComponent } from "../../../login/components/sign-in/sign-in.compo
 import { GlobalsService } from "../../../shared/services/globals.service";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
+import { MatBadgeModule } from "@angular/material/badge";
 import { APP_LANG } from "../../../core/models/app-lang";
-import { NgIf } from "@angular/common";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { SearchService } from "../../services/search-state.service";
-import { AppLocalStorageService } from "../../../shared/services/app-local-storage.service";
 import { AuthService } from "../../../shared/services/auth.service";
 import User from "../../../login/models/user";
-import { CookieService } from "ngx-cookie-service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-home-header",
   templateUrl: "./home-header.component.html",
   styleUrls: ["./home-header.component.scss"],
-  imports: [MatMenuModule, RouterModule, MatIconModule, NgIf],
+  imports: [MatMenuModule, MatBadgeModule, AsyncPipe, RouterModule, MatIconModule, NgIf],
   standalone: true,
 })
 export class HomeHeaderComponent {
@@ -30,15 +30,15 @@ export class HomeHeaderComponent {
   isAuthenticated!: boolean;
   currentUser!: User;
   userName!: string;
-  countCart!: number;
+  cartItems$: Observable<number>;
   searchText: string = "";
 
   constructor(
-    private cookieService: CookieService,
     private search: SearchService,
     public global: GlobalsService,
     private dialog: MatDialog,
-    private auth: AuthService
+    private auth: AuthService,
+    private cartService: CartService
   ) {
     this.auth.currentUser$.subscribe((currentUser) => {
       this.currentUser = currentUser;
@@ -48,6 +48,8 @@ export class HomeHeaderComponent {
     });
 
     this.lang = this.global.lang;
+
+    this.cartItems$ = this.cartService.cartItems$;
   }
 
   register() {
@@ -71,10 +73,11 @@ export class HomeHeaderComponent {
     this.global.Initialize(this.global.appMode, lang as APP_LANG);
     location.reload();
   }
-  goToCart() {
-    this.global.redirectToComponent("cart");
-  }
+
   goToHome() {
     this.global.redirectToHome();
+  }
+  openCart() {
+    this.global.redirectToComponent("cart");
   }
 }
