@@ -50,8 +50,7 @@ export class SignInComponent implements OnInit {
           duration: 2000,
         });
         this.dialog.closeAll();
-        // location.reload();
-        // this.router.navigate(["/"]);
+        this.auth.updateAuthenticationStatus();
       },
       error: (error) => {
         this.snackBar.open("login is invalid due to wrong credentials or your account is not activated yet", "Failed", {

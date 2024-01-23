@@ -162,13 +162,19 @@ namespace Infrastructure.Identity
                 return;
             foreach (var cookie in cookies)
             {
-                _contextAccessor.HttpContext.Response.Cookies.Delete(cookie.Key);
+                //_contextAccessor.HttpContext.Response.Cookies.Delete(cookie.Key);
 
-                //_contextAccessor.HttpContext.Response.Cookies.Append(
-                //    cookie.Key,
-                //    cookie.Value,
-                //    new CookieOptions() { Expires = DateTimeOffset.Now.AddHours(-1) }
-                //);
+                _contextAccessor.HttpContext.Response.Cookies.Append(
+                    cookie.Key,
+                    "",
+                    new CookieOptions()
+                    {
+                        Expires = DateTimeOffset.Now.AddHours(-1),
+                        SameSite = SameSiteMode.None,
+                        Secure = true,
+                        Path = "/"
+                    }
+                );
             }
         }
     }

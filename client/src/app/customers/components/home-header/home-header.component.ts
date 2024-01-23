@@ -14,6 +14,7 @@ import { SearchService } from "../../services/search-state.service";
 import { AppLocalStorageService } from "../../../shared/services/app-local-storage.service";
 import { AuthService } from "../../../shared/services/auth.service";
 import User from "../../../login/models/user";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-home-header",
@@ -33,18 +34,17 @@ export class HomeHeaderComponent {
   searchText: string = "";
 
   constructor(
-    private router: Router,
+    private cookieService: CookieService,
     private search: SearchService,
     public global: GlobalsService,
     private dialog: MatDialog,
     private auth: AuthService
   ) {
-    this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
-      this.isAuthenticated = isAuthenticated;
-    });
-
     this.auth.currentUser$.subscribe((currentUser) => {
       this.currentUser = currentUser;
+    });
+    this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
+      this.isAuthenticated = isAuthenticated;
     });
 
     this.lang = this.global.lang;
@@ -58,7 +58,7 @@ export class HomeHeaderComponent {
   logout() {
     this.auth.logout().subscribe(() => {
       this.auth.updateAuthenticationStatus();
-      this.global.redirectToLogin();
+      this.global.redirectToHome();
     });
   }
 

@@ -41,7 +41,7 @@ namespace FullCartApi.Controllers
             return BadRequest(result.Error);
         }
 
-        [HttpGet("Logout")]
+        [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {
             var result = await _mediator.Send(new LogoutCommand());

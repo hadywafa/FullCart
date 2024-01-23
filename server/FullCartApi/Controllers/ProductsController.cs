@@ -32,7 +32,6 @@ namespace FullCartApi.Controllers
             return StatusCode(200, products);
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductDetailsById([FromRoute] int id)
         {

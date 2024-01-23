@@ -40,27 +40,25 @@
               <span>Orders</span>
             </button>
           </div>
-          <button (click)="global.redirectToComponent('orders')" mat-menu-item routerLink="/user/Address">
+          <button (click)="global.redirectToComponent('account')" mat-menu-item routerLink="/user/Address">
             <mat-icon>
               <img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg" />
             </mat-icon>
             <span>Addresses</span>
           </button>
-          <button (click)="global.redirectToComponent('orders')" mat-menu-item routerLink="/user/payment">
+          <button (click)="global.redirectToComponent('account')" mat-menu-item routerLink="/user/payment">
             <mat-icon><img src="https://z.nooncdn.com/s/app/com/noon/icons/payment_menu_icon_v3.svg" /></mat-icon>
             <span>Payments</span>
           </button>
-          <button (click)="global.redirectToComponent('orders')" mat-menu-item routerLink="/user/return">
+          <button (click)="global.redirectToComponent('account')" mat-menu-item routerLink="/user/return">
             <mat-icon><img src="	https://z.nooncdn.com/s/app/com/noon/icons/returns_menu_icon_v3.svg" /> </mat-icon>
             <span>Returns</span>
           </button>
-          <button (click)="global.redirectToComponent('orders')" mat-menu-item routerLink="/user/profile">
+          <button (click)="global.redirectToComponent('account')" mat-menu-item routerLink="/user/profile">
             <mat-icon><img src="	https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" /> </mat-icon>
             <span>Profile</span>
           </button>
-          <button (click)="global.redirectToComponent('orders')" mat-menu-item (click)="logout()">
-            <mat-icon>logout</mat-icon> <span>Logout</span>
-          </button>
+          <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> <span>Logout</span></button>
         </mat-menu>
       </li>
 
