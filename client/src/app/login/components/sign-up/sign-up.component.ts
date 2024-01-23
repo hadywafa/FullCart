@@ -1,28 +1,26 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { AuthService } from "../../../shared/services/auth.service";
 import { SignUp } from "../../../shared/models/sign-up";
-
+import { SignInComponent } from "../sign-in/sign-in.component";
+import { MatSnackBar } from "@angular/material/snack-bar";
 @Component({
   selector: "app-sign-up",
   templateUrl: "./sign-up.component.html",
   styleUrls: ["./sign-up.component.scss"],
-  imports:[ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   standalone: true,
 })
 export class SignUpComponent implements OnInit {
   signUpUser!: SignUp;
   userForm!: FormGroup;
-  @Output() emmiterSignIn: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router,
-    private toaster: ToastrService
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {
     this.userForm = this.formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -48,31 +46,35 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    // stop here if form is invalid
     if (this.userForm.invalid) {
+      this.snackBar.open("invalid form", "Failed", {
+        duration: 2000,
+      });
       return;
     }
     this.signUpUser = this.userForm.value;
     this.signUpUser.UserName = this.signUpUser.firstName + " " + this.signUpUser.lastName;
     this.signUpUser.role = "Customer";
-    // console.log(this.vmSignUpUser);
     this.authService.register(this.signUpUser).subscribe(
       () => {
-        this.toaster.success("Creating Accounting Successfully", "ok to start Shopping.");
-        location.reload();
-        this.router.navigate(["/"]);
+        this.snackBar.open("Creating Accounting Successfully", "Success", {
+          duration: 2000,
+        });
+        this.dialog.closeAll();
+        // location.reload();
+        // this.router.navigate(["/"]);
       },
       (err: any) => {
-        this.toaster.error("some error check your information and try again");
+        this.snackBar.open("some error check your information and try again", "Failed", {
+          duration: 2000,
+        });
         console.warn(err);
-      },
-      () => {
-        console.log("completed");
       }
     );
     this.userForm.reset();
   }
-  goSignin() {
-    this.emmiterSignIn.emit();
+  openSignInDialog() {
+    this.dialog.closeAll();
+    this.dialog.open(SignInComponent);
   }
 }

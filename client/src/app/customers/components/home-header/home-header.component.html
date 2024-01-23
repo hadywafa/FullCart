@@ -16,7 +16,7 @@
   </div>
 
   <div class="flex items-center">
-    <ul class="flex items-center list-inline">
+    <ul class="flex items-center font-bold text-white list-inline">
       <li *ngIf="lang!=='ar'" class="mx-2">
         <button class="btn headerLink" (click)="localization('ar')">العربية</button>
       </li>
@@ -38,8 +38,8 @@
         </mat-menu>
       </li>
 
-      <li *ngIf="!token" class="mx-2">
-        <span class="btn" (click)="register()"> sign <i class="fa-solid fa-user"></i> </span>
+      <li *ngIf="!token" class="mx-2 cursor-pointer">
+        <span class="btn" (click)="register()"> login <i class="fa-solid fa-user"></i> </span>
       </li>
 
       <li class="mx-2">

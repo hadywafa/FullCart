@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Router, RouterModule } from "@angular/router";
 import { environment } from "../../../../environments/environment";
-import { TokenService } from "../../../login/services/token.service";
 import { CartService } from "../../services/cart.service";
 import { Category } from "../../models/category";
 import { SignInComponent } from "../../../login/components/sign-in/sign-in.component";
@@ -12,6 +11,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { APP_LANG } from "../../../core/models/app-lang";
 import { NgIf } from "@angular/common";
 import { SearchService } from "../../services/search-state.service";
+
 @Component({
   selector: "app-home-header",
   templateUrl: "./home-header.component.html",
@@ -26,32 +26,29 @@ export class HomeHeaderComponent {
   token!: any;
   userName!: string;
   countCart!: number;
+  searchText: string = "";
 
   constructor(
     private router: Router,
     private search: SearchService,
-    private _dialog: MatDialog,
     private global: GlobalsService,
-    private _auth: TokenService,
-    private _cartService: CartService // private _cartService: CartService
+    private dialog: MatDialog,
+    private cartService: CartService // private _cartService: CartService
   ) {
     this.lang = localStorage.getItem("lang")!;
   }
 
   register() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    this._dialog.open(SignInComponent, dialogConfig);
+    this.dialog.closeAll();
+    this.dialog.open(SignInComponent);
   }
+
   logout() {
     document.cookie = "_statueId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     this.global.redirectToLogin();
     this.router.navigate(["/"]);
     window.location.reload();
   }
-  searchText: string = "";
-  @Output()
-  SearchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   onSearchTextChange(st: string) {
     this.searchText = st;
@@ -63,9 +60,9 @@ export class HomeHeaderComponent {
     location.reload();
   }
   goToCart() {
-    this.global.redirectToComponent('cart')
+    this.global.redirectToComponent("cart");
   }
   goToHome() {
-    this.global.redirectToHome()
+    this.global.redirectToHome();
   }
 }

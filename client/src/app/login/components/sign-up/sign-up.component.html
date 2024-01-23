@@ -1,6 +1,6 @@
 <div class="container-wrapper">
   <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Create an account</h3>
-  <span class="ac">Aleardy have an Account? <span class="btn btn-link" (click)="goSignin()">Sign In</span></span>
+  <span class="ac">Aleardy have an Account? <span class="btn btn-link" (click)="openSignInDialog()">Sign In</span></span>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <!-- email -->
     <div class="item">
@@ -83,7 +83,7 @@
   </form>
 </div>
 <!-- For testing values  -->
-<!-- <div class="bg-warning text-center">
+<!-- <div class="text-center bg-warning">
   <h3>For Testing :</h3>
   <p>{{userForm.value | json}}</p>
   <h3>{{userForm.get('fullName')?.errors | json}}</h3>

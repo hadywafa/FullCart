@@ -3,7 +3,7 @@
   <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Sign in to your account</h3>
 
   <div class="cursor-pointer ac">
-    Don't have an Account? <span class="btn btn-link" (click)="goSignUp()">Sign Up</span>
+    Don't have an Account? <span class="btn btn-link" (click)="openSignUpDialog()">Sign Up</span>
   </div>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
