@@ -4,12 +4,13 @@ import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { TokenService } from "../../services/token.service";
 import { NgIf } from "@angular/common";
+import { AuthService } from "../../../shared/services/auth.service";
 
 @Component({
   selector: "app-sign-in",
   templateUrl: "./sign-in.component.html",
   styleUrls: ["./sign-in.component.scss"],
-  imports: [ReactiveFormsModule,NgIf],
+  imports: [ReactiveFormsModule, NgIf],
   standalone: true,
 })
 export class SignInComponent implements OnInit {
@@ -21,8 +22,9 @@ export class SignInComponent implements OnInit {
   //========================================================Lifecycle Hooks==================================
   //#region Lifecycle Hooks
   constructor(
-    private _fb: FormBuilder,
-    private _router: Router,
+    private fb: FormBuilder,
+    private router: Router,
+    private auth: AuthService,
     private tokenService: TokenService,
     private toaster: ToastrService
   ) {}
@@ -31,7 +33,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginForm = this._fb.group({
+    this.loginForm = this.fb.group({
       email: ["", Validators.required],
       password: ["", Validators.required],
     });
@@ -52,7 +54,7 @@ export class SignInComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.tokenService.requestAccessToken(this.email?.value ?? "", this.password?.value ?? "").subscribe({
+    this.auth.login({ email: this.email?.value ?? "", password: this.password?.value ?? "" }).subscribe({
       next: (data) => {
         localStorage.setItem("user", JSON.stringify(data));
       },
@@ -65,8 +67,8 @@ export class SignInComponent implements OnInit {
       },
       complete: () => {
         this.toaster.success("login  Successfully", "compelet Shopping  ");
-        this._router.navigate(["/"]);
-        window.location.reload();
+        // this.router.navigate(["/"]);
+        // window.location.reload();
       },
     });
   }

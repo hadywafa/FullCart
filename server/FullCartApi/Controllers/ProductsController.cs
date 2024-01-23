@@ -7,6 +7,7 @@ using Application.Features.Products.Queries.GetProductDetailsById;
 using Application.Features.Products.Queries.GetProductsBref;
 using Application.Features.Reviews.Queries.GetReviewsByProductId;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FullCartApi.Controllers
@@ -31,6 +32,7 @@ namespace FullCartApi.Controllers
             return StatusCode(200, products);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductDetailsById([FromRoute] int id)
         {

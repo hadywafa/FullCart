@@ -19,16 +19,16 @@ export class OrderService {
   }
 
   GetAllorders(): Observable<Order[]> {
-    return this.httpclient.get<Order[]>("http://localhost:3000/orders");
+    return this.httpclient.get<Order[]>("http://localhost:3000/Orders");
   }
 
   GetorderById(oid: number): Observable<Order> {
-    return this.httpclient.get<Order>(`http://localhost:3000/orders?id=${oid}`);
+    return this.httpclient.get<Order>(`http://localhost:3000/Orders?id=${oid}`);
   }
 
   updateorder(order: Order): Observable<Order> {
     return this.httpclient.put<Order>(
-      `http://localhost:3000/orders/${order.id}`,
+      `http://localhost:3000/Orders/${order.id}`,
       JSON.stringify(order),
       this.httpoption
     );

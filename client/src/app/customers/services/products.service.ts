@@ -14,30 +14,30 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {}
 
   GetAllProducts(): Observable<ProductSummary[]> {
-    return this.httpClient.get<ProductSummary[]>(`${environment.api.baseURL}` + "/products");
+    return this.httpClient.get<ProductSummary[]>(`${environment.api.baseURL}` + "/Products");
   }
 
   GetProductsByCatCode(catCode: string): Observable<ProductSummary[]> {
     return this.httpClient.get<ProductSummary[]>(
-      `${environment.api.baseURL}` + `/products/FilterProductsByCatCode/${catCode}`
+      `${environment.api.baseURL}` + `/Products/FilterProductsByCatCode/${catCode}`
     );
   }
 
   GetProductById(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${environment.api.baseURL}` + `/products/${id}`);
+    return this.httpClient.get<Product>(`${environment.api.baseURL}` + `/Products/${id}`);
   }
 
   GetAllProductReviews(proId: number): Observable<Review[]> {
-    return this.httpClient.get<Review[]>(`${environment.api.baseURL}` + `/products/GetProductReviews/${proId}`);
+    return this.httpClient.get<Review[]>(`${environment.api.baseURL}` + `/Products/GetProductReviews/${proId}`);
   }
 
   GetCategoriesJson(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(`${environment.api.baseURL}` + "/products/GetCategoriesJson");
+    return this.httpClient.get<Category[]>(`${environment.api.baseURL}` + "/Products/GetCategoriesJson");
   }
 
   GetProductCategories(catId: number): Observable<Category[]> {
     return this.httpClient.get<Category[]>(
-      `${environment.api.baseURL}` + `/products/GetProductCategories?parentCatId=${catId}`
+      `${environment.api.baseURL}` + `/Products/GetProductCategories?parentCatId=${catId}`
     );
   }
 }

@@ -33,23 +33,15 @@ namespace FullCartApi
                 options.HttpOnly = HttpOnlyPolicy.None;
                 options.Secure = CookieSecurePolicy.None; // Set this to None for non-HTTPS testing
             });
-            #region register services
-
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
-
-            #endregion
-
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(
-                    "v1",
-                    new OpenApiInfo { Title = "FullCartApi", Version = "v1" }
-                );
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FullCartApi", Version = "v1" });
             });
         }
 
@@ -88,7 +80,7 @@ namespace FullCartApi
 
             app.UseAuthentication(); //1
 
-            //app.UseAuthorization(); //2
+            app.UseAuthorization(); //2
 
             app.UseEndpoints(endpoints =>
             {

@@ -26,14 +26,14 @@ namespace FullCartApi.Controllers
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
-        [HttpPost("add")]
+        [HttpPost("Add")]
         public async Task<IActionResult> AddToCart([FromQuery] int proId, [FromQuery] int count)
         {
             return StatusCode(200);
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
-        [HttpPut("update")]
+        [HttpPut("Update")]
         public async Task<IActionResult> UpdateQuantity(
             [FromQuery] int proId,
             [FromQuery] int count
@@ -43,14 +43,14 @@ namespace FullCartApi.Controllers
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
-        [HttpDelete("eemove")]
+        [HttpDelete("Remove")]
         public async Task<IActionResult> RemoveFromCart([FromQuery] int proId)
         {
             return StatusCode(200);
         }
 
         [Authorize(Roles = AuthorizeRoles.Customer)]
-        [HttpGet("getCartPrice")]
+        [HttpGet("GetCartPrice")]
         public async Task<IActionResult> GetPrice()
         {
             return Ok();

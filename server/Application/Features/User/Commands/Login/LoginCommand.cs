@@ -55,8 +55,8 @@ namespace Application.Features.User.Commands.SignInWithIdv
                 {
                     Expires = DateTime.Now.AddMinutes(_jwt.AccessTokenDurationInMinutes),
                     HttpOnly = true,
-                    Secure = false, // for local development
-                    SameSite = SameSiteMode.None
+                    Secure = true, // for local development = false
+                    SameSite = SameSiteMode.None,
                 }
             );
 
@@ -68,7 +68,7 @@ namespace Application.Features.User.Commands.SignInWithIdv
                 {
                     Expires = DateTime.Now.AddHours(_jwt.RefreshTokenDurationInHours),
                     HttpOnly = true,
-                    Secure = false, // for local development
+                    Secure = true, // for local development = false
                     SameSite = SameSiteMode.None
                 }
             );
@@ -88,7 +88,7 @@ namespace Application.Features.User.Commands.SignInWithIdv
                 {
                     Expires = DateTime.Now.AddHours(100),
                     HttpOnly = false,
-                    Secure = false, // for local development
+                    Secure = true, // for local development = false
                     SameSite = SameSiteMode.None
                 }
             );
