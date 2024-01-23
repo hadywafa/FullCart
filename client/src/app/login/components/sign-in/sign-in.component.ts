@@ -1,10 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
-import { TokenService } from "../../services/token.service";
 import { NgIf } from "@angular/common";
 import { AuthService } from "../../../shared/services/auth.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-sign-in",
@@ -14,20 +12,10 @@ import { AuthService } from "../../../shared/services/auth.service";
   standalone: true,
 })
 export class SignInComponent implements OnInit {
-  //=========================================================Properties====================================
-  //#region Properties
   loginForm!: FormGroup;
   @Output() emmiterSignUp: EventEmitter<any> = new EventEmitter<any>();
-  //#endregion
-  //========================================================Lifecycle Hooks==================================
-  //#region Lifecycle Hooks
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private auth: AuthService,
-    private tokenService: TokenService,
-    private toaster: ToastrService
-  ) {}
+
+  constructor(private fb: FormBuilder, private auth: AuthService, private snackBar: MatSnackBar) {}
   ngOnDestroy(): void {
     // console.log("destroyed");
   }
@@ -38,10 +26,7 @@ export class SignInComponent implements OnInit {
       password: ["", Validators.required],
     });
   }
-  //#endregion
-  //===========================================================Methods======================================
-  //#region Methods
-  // convenience getter for easy access to form fields
+
   get email() {
     return this.loginForm.get("email");
   }
@@ -50,7 +35,6 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
@@ -60,20 +44,22 @@ export class SignInComponent implements OnInit {
       },
       error: (error) => {
         console.log(error);
-        this.toaster.error(
+        this.snackBar.open(
           "login is invalid due to wrong credentials or your account is not activated yet",
-          "try again later."
+          "try again later.",
+          {
+            duration: 2000,
+          }
         );
       },
       complete: () => {
-        this.toaster.success("login  Successfully", "compelet Shopping  ");
-        // this.router.navigate(["/"]);
-        // window.location.reload();
+        this.snackBar.open("login  Successfully", "Login", {
+          duration: 2000,
+        });
       },
     });
   }
   goSignUp() {
     this.emmiterSignUp.emit();
   }
-  //#endregion
 }

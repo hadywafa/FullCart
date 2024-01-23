@@ -6,7 +6,6 @@ import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { provideToastr } from "ngx-toastr";
 import { withCredentialsInterceptor } from "./core/interceptors/with-credentials.interceptor";
-import { errorLoggingInterceptor } from "./core/interceptors/error-logger.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideToastr(),
     provideHttpClient(),
-    provideHttpClient(withInterceptors([withCredentialsInterceptor, errorLoggingInterceptor])),
+    provideHttpClient(withInterceptors([withCredentialsInterceptor])),
   ],
 };
