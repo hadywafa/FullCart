@@ -1,4 +1,4 @@
-import { Routes } from "@angular/router";
+import { ActivatedRouteSnapshot, Routes } from "@angular/router";
 import { CustomerLayoutComponent } from "./layout/customer-layout/customer-layout.component";
 import { SellerLayoutComponent } from "./layout/seller-layout/seller-layout.component";
 import { APP_TYPE_MODE } from "./core/models/app-type-mode";
@@ -7,16 +7,16 @@ import { AppInitializationGuard } from "./core/guards/app-initialization.guard";
 
 export const routes: Routes = [
   {
-    path: `${APP_TYPE_MODE.CUSTOMER}/:lang`,
+    path: `:appMode/:lang`,
     canActivate: [AppInitializationGuard],
-    component: CustomerLayoutComponent,
-    loadChildren: () => import("../app/customers/customer.routes").then((m) => m.CUSTOMER_ROUTES),
-  },
-  {
-    path: `${APP_TYPE_MODE.SELLER}/:lang`,
-    canActivate: [AppInitializationGuard],
-    component: SellerLayoutComponent,
-    loadChildren: () => import("../app/seller/seller.routes").then((m) => m.SELLER_ROUTES),
+    loadChildren: () => {
+      const appMode = localStorage.getItem("appMode");
+      if (appMode === APP_TYPE_MODE.SELLER) {
+        return import("../app/seller/seller.routes").then((m) => m.SELLER_ROUTES);
+      } else {
+        return import("../app/customers/customer.routes").then((m) => m.CUSTOMER_ROUTES);
+      }
+    },
   },
   {
     path: "",

@@ -21,17 +21,19 @@ export class AppInitializationGuard {
   }
 
   canActivate(next: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | UrlTree {
-    const appMode = next.paramMap.keys[0] === APP_TYPE_MODE.SELLER ? APP_TYPE_MODE.SELLER : APP_TYPE_MODE.CUSTOMER;
+    const appMode =
+      next.paramMap.get("appMode") === APP_TYPE_MODE.SELLER ? APP_TYPE_MODE.SELLER : APP_TYPE_MODE.CUSTOMER;
     const lang = next.paramMap.get("lang") === APP_LANG.AR ? APP_LANG.AR : APP_LANG.EN;
 
     if (!appMode || !lang) {
       this.router.navigate([`page-not-found`]).catch((e) => console.log(e));
       return this.router.createUrlTree(["/"]);
     }
-
+    localStorage.setItem("appMode", appMode);
     this.global.Initialize(appMode, lang);
 
     // this.translateService.use(lang);
+
     this.titleService.setTitle(this.global.appMode);
 
     return of(true);

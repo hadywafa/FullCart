@@ -11,36 +11,43 @@ import { UpdateCategoryComponent } from "./components/categories/update-category
 import { BrandsComponent } from "./components/brands/brands.component";
 import { AddBrandComponent } from "./components/brands/add-brand/add-brand.component";
 import { OrdersComponent } from "./components/orders/orders.component";
+import { SellerLayoutComponent } from "../layout/seller-layout/seller-layout.component";
 
 export const SELLER_ROUTES: Routes = [
-  { path: "dashboard", component: DashboardComponent },
-  { path: "inventory", component: InventoryComponent },
   {
-    path: "inventory",
+    path: "",
+    component: SellerLayoutComponent,
     children: [
-      { path: "", component: InventoryComponent },
-      { path: "add", component: AddInventoryComponent },
-      { path: "update/:id", component: UpdateBrandComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "inventory", component: InventoryComponent },
+      {
+        path: "inventory",
+        children: [
+          { path: "", component: InventoryComponent },
+          { path: "add", component: AddInventoryComponent },
+          { path: "update/:id", component: UpdateBrandComponent },
+        ],
+      },
+      {
+        path: "category",
+        children: [
+          { path: "", component: CategoriesComponent },
+          { path: "add", component: AddCategoryComponent },
+          { path: "update/:id", component: UpdateCategoryComponent },
+        ],
+      },
+      {
+        path: "brand",
+        children: [
+          { path: "", component: BrandsComponent },
+          { path: "add", component: AddBrandComponent },
+          { path: "update/:id", component: UpdateBrandComponent },
+        ],
+      },
+      { path: "order", component: OrdersComponent },
+      { path: "profile", component: ProfileComponent },
+      { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      { path: "**", component: NotFoundComponent },
     ],
   },
-  {
-    path: "category",
-    children: [
-      { path: "", component: CategoriesComponent },
-      { path: "add", component: AddCategoryComponent },
-      { path: "update/:id", component: UpdateCategoryComponent },
-    ],
-  },
-  {
-    path: "brand",
-    children: [
-      { path: "", component: BrandsComponent },
-      { path: "add", component: AddBrandComponent },
-      { path: "update/:id", component: UpdateBrandComponent },
-    ],
-  },
-  { path: "order", component: OrdersComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "", redirectTo: "dashboard", pathMatch: "full" },
-  { path: "**", component: NotFoundComponent },
 ];
