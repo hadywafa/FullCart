@@ -12,6 +12,7 @@ import { BrandsComponent } from "./components/brands/brands.component";
 import { AddBrandComponent } from "./components/brands/add-brand/add-brand.component";
 import { OrdersComponent } from "./components/orders/orders.component";
 import { SellerLayoutComponent } from "../layout/seller-layout/seller-layout.component";
+import { UpdateInventoryComponent } from "./components/inventory/update-inventory/update-inventory.component";
 
 export const SELLER_ROUTES: Routes = [
   {
@@ -25,7 +26,7 @@ export const SELLER_ROUTES: Routes = [
         children: [
           { path: "", component: InventoryComponent },
           { path: "add", component: AddInventoryComponent },
-          { path: "update/:id", component: UpdateBrandComponent },
+          { path: "update/:id", component: UpdateInventoryComponent },
         ],
       },
       {

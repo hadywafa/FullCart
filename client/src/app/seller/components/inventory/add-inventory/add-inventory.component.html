@@ -1,35 +1,71 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
-    <mat-label>Product Name</mat-label>
-    <input matInput formControlName="name" />
-    <mat-error *ngIf="productForm.get('name').hasError('required')">Name is required</mat-error>
-  </mat-form-field>
+<!-- add-inventory.component.html -->
 
-  <mat-form-field appearance="fill">
-    <mat-label>Product Description</mat-label>
-    <textarea matInput formControlName="description"></textarea>
-    <mat-error *ngIf="productForm.get('description').hasError('required')">Description is required</mat-error>
-  </mat-form-field>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto my-8">
+  <div class="mb-4">
+    <label class="block mb-2 text-sm font-bold" for="name">Product Name</label>
+    <input class="w-full px-3 py-2 border rounded appearance-none" id="name" type="text" formControlName="name" />
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('name')?.hasError('required')">Name is required</div>
+  </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Product Price</mat-label>
-    <input matInput formControlName="price" type="number" />
-    <mat-error *ngIf="productForm.get('price').hasError('required')">Price is required</mat-error>
-    <mat-error *ngIf="productForm.get('price').hasError('min')">Price cannot be negative</mat-error>
-  </mat-form-field>
+  <div class="mb-4">
+    <label class="block mb-2 text-sm font-bold" for="description">Product Description</label>
+    <textarea
+      class="w-full px-3 py-2 border rounded appearance-none"
+      id="description"
+      formControlName="description"
+    ></textarea>
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('description')?.hasError('required')">
+      Description is required
+    </div>
+  </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Product Discount (%)</mat-label>
-    <input matInput formControlName="discount" type="number" />
-    <mat-error *ngIf="productForm.get('discount').hasError('min')">Discount cannot be negative</mat-error>
-    <mat-error *ngIf="productForm.get('discount').hasError('max')">Discount cannot exceed 100%</mat-error>
-  </mat-form-field>
+  <div class="mb-4">
+    <label class="block mb-2 text-sm font-bold" for="price">Product Price</label>
+    <input class="w-full px-3 py-2 border rounded appearance-none" id="price" type="number" formControlName="price" />
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('price')?.hasError('required')">
+      Price is required
+    </div>
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('price')?.hasError('min')">
+      Price cannot be negative
+    </div>
+  </div>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Product Image</mat-label>
-    <input matInput formControlName="image" type="file" (change)="onImageChange($event)" />
-    <mat-error *ngIf="productForm.get('image').hasError('required')">Image is required</mat-error>
-  </mat-form-field>
+  <div class="mb-4">
+    <label class="block mb-2 text-sm font-bold" for="discount">Product Discount (%)</label>
+    <input
+      class="w-full px-3 py-2 border rounded appearance-none"
+      id="discount"
+      type="number"
+      formControlName="discount"
+    />
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('discount')?.hasError('min')">
+      Discount cannot be negative
+    </div>
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('discount')?.hasError('max')">
+      Discount cannot exceed 100%
+    </div>
+  </div>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">Create Product</button>
+  <div class="mb-4">
+    <label class="block mb-2 text-sm font-bold" for="image">Product Image</label>
+    <input
+      class="w-full px-3 py-2 border rounded appearance-none"
+      id="image"
+      type="file"
+      (change)="onImageChange($event)"
+    />
+    <div class="text-xs italic text-red-500" *ngIf="productForm.get('image')?.hasError('required')">
+      Image is required
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <button
+      class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+      type="submit"
+      [disabled]="productForm.invalid"
+    >
+      Create Product
+    </button>
+  </div>
 </form>

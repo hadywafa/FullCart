@@ -12,10 +12,11 @@ namespace Domain.EFModels
         {
             AddedOn = DateTime.Now;
         }
+
         // identity auto generated
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }        
-        
+        public int Id { get; set; }
+
         [Required, MinLength(3), MaxLength(500)]
         public string Name { get; set; }
 
@@ -29,7 +30,7 @@ namespace Domain.EFModels
         public string DescriptionArabic { get; set; }
 
         public decimal BuyingPrice { get; set; }
-        
+
         public decimal SellingPrice { get; set; }
 
         public decimal Revenue { get; set; }
@@ -57,8 +58,6 @@ namespace Domain.EFModels
 
         [Range(1, 1000)]
         public int MaxQuantityPerOrder { get; set; }
-        
-
 
         #region Navigation Property
 
@@ -75,7 +74,7 @@ namespace Domain.EFModels
         // Each Product can be in many Orders
         public virtual ICollection<OrderItem> Orders { get; set; }
 
-        //each product have one brand 
+        //each product have one brand
         public virtual Brand Brand { get; set; }
 
         //each product have multi image gallantry
@@ -86,7 +85,7 @@ namespace Domain.EFModels
 
         // its not mapping its an implementation of [Customer  m => Wishlist <== m Product]
         public virtual ICollection<CustProWishlist> CustProWishlist { get; set; }
-        
+
         //each product have many highlights
         public virtual ICollection<ProductHighlights> ProductHighlights { get; set; }
 
@@ -97,8 +96,5 @@ namespace Domain.EFModels
         public virtual ICollection<CustProSellReviews> CustProSellReviews { get; set; }
 
         #endregion
-
-
-
     }
 }

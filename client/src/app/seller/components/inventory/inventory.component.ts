@@ -6,12 +6,13 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
 import { GlobalsService } from "../../../shared/services/globals.service";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: "app-inventory",
   templateUrl: "./inventory.component.html",
   styleUrls: ["./inventory.component.css"],
-  imports: [MatTableModule, MatIconModule],
+  imports: [MatTableModule, MatIconModule, MatButtonModule],
   standalone: true,
 })
 export class InventoryComponent implements OnInit {

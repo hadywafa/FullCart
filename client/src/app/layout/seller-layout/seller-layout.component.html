@@ -1,11 +1,11 @@
-<div class="flex h-screen w-full overflow-hidden">
+<div class="flex w-full h-screen overflow-hidden">
   <app-sidebar></app-sidebar>
 
-  <div class="flex grow flex-col content-start overflow-hidden bg-gray-100 dark:bg-night-800">
+  <div class="flex flex-col content-start overflow-hidden grow bg-gray-50 dark:bg-night-800">
     <app-navbar></app-navbar>
     <div
       id="main-content"
-      class="scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-100 dark:scrollbar-thumb-night-700 dark:scrollbar-track-night-800"
+      class="overflow-auto scrollbar-thumb-rounded scrollbar-track-rounded grow scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-100 dark:scrollbar-thumb-night-700 dark:scrollbar-track-night-800"
     >
       <router-outlet></router-outlet>
     </div>

@@ -1,13 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import { ProductsService } from "../../../../customers/services/products.service";
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatFormField, MatFormFieldControl, MatFormFieldModule } from "@angular/material/form-field";
+import { MatButtonModule } from "@angular/material/button";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: "app-add-inventory",
   templateUrl: "./add-inventory.component.html",
   styleUrls: ["./add-inventory.component.css"],
-  imports: [ReactiveFormsModule, MatFormFieldModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatFormField, MatFormFieldModule, NgIf],
   standalone: true,
 })
 export class AddInventoryComponent implements OnInit {
