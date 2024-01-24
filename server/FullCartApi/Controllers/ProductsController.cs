@@ -50,7 +50,7 @@ namespace FullCartApi.Controllers
         }
 
         //Don't use this End point because it's hell
-        [HttpPost("CreateProduct")]
+        [HttpPost("Add")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductBrefDto productBrefDto)
         {
             var result = await _mediator.Send(

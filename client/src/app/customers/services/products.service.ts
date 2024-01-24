@@ -40,4 +40,7 @@ export class ProductsService {
       `${environment.api.baseURL}` + `/Products/GetProductCategories?parentCatId=${catId}`
     );
   }
+  createProduct(formData: FormData): Observable<any> {
+    return this.httpClient.post(`${environment.api.baseURL}/Products/Add`, formData);
+  }
 }
